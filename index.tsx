@@ -66,7 +66,7 @@ class StripeCheckoutSca extends Component<StripeCheckoutScaProps, any> {
                     onNavigationStateChange={(e) => onNavigationStateChange(e)}
                     source={{
                         html:
-                            `<script src="https://js.stripe.com/v3"></script>
+                            `<script src="/v3"></script>
                             <script>
                             var stripe = Stripe('${publicKey}');
                             window.onload = function() {
@@ -81,7 +81,7 @@ class StripeCheckoutSca extends Component<StripeCheckoutScaProps, any> {
                                 });
                             };
                             </script>`,
-                        baseUrl: ''
+                        baseUrl: 'https://js.stripe.com/'
                     }}
                     onMessage={event => event.nativeEvent.data === 'WINDOW_CLOSED' ? onClose() : console.log('Event: ' + event.nativeEvent.data)}
                     style={[{flex: 1}, webViewStyle]}
